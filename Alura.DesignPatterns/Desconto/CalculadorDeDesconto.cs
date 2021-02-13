@@ -1,5 +1,8 @@
 ﻿namespace Alura.DesignPatterns
 {
+    /// <summary>
+    /// Classe utilizada para gerenciar a "Chain of Responsabily".
+    /// </summary>
     public class CalculadorDeDesconto
     {
         public double CalculaDesconto(Orcamento orcamento)

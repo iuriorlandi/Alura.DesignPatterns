@@ -1,5 +1,8 @@
 ﻿namespace Alura.DesignPatterns
 {
+    /// <summary>
+    /// Desconto aplicado a <see cref="Orcamento"/>s que possuam <see cref="Orcamento.Valor"/> igual ou superiror a <see langword="500"/>.
+    /// </summary>
     public class DescontoValorMaiorQueQuinhentos : IDesconto
     {
         public IDesconto Proximo { get; set; }

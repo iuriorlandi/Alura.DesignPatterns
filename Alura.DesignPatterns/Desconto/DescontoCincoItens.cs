@@ -2,6 +2,9 @@
 
 namespace Alura.DesignPatterns
 {
+    /// <summary>
+    /// Desconto aplicado a <see cref="Orcamento"/>s que possuam cinco <see cref="Orcamento.Itens"/> ou mais.
+    /// </summary>
     class DescontoCincoItens : IDesconto
     {
         public IDesconto Proximo { get; set; }

@@ -12,6 +12,9 @@ namespace Alura.DesignPatterns
             TestaDescontos();
         }
 
+        /// <summary>
+        /// Realiza teste de cálculo de imposto utilizando o padrão Strategy.
+        /// </summary>
         private static void TestaImpostos()
         {
             var orcamento = new Orcamento(500);
@@ -27,7 +30,9 @@ namespace Alura.DesignPatterns
 
             Console.ReadKey();
         }
-
+        /// <summary>
+        /// Realiza teste de aplicação de desconto utilizando o padrão Chain of Responsabily.
+        /// </summary>
         private static void TestaDescontos()
         {
             var tv = new Item("TV", 90);

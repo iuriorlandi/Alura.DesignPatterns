@@ -1,5 +1,8 @@
 ﻿namespace Alura.DesignPatterns
 {
+    /// <summary>
+    /// Não aplica nenhum desconto (fim da "Chain of Responsability").
+    /// </summary>
     public class SemDesconto : IDesconto
     {
         public IDesconto Proximo { get; set; }
