@@ -1,5 +1,8 @@
 ﻿namespace Alura.DesignPatterns
 {
+    /// <summary>
+    /// Implementacão de <see cref="IImposto"/> com as regras aplicáveis ao imposto <see cref="ICPP"/>.
+    /// </summary>
     public class ICPP : TemplateImpostoCondicional
     {
         protected override bool AplicaMaximaTaxacao(Orcamento orcamento)

@@ -2,6 +2,9 @@
 
 namespace Alura.DesignPatterns
 {
+    /// <summary>
+    /// Implementacão de <see cref="IImposto"/> com as regras aplicáveis ao imposto <see cref="IKCV"/>.
+    /// </summary>
     public class IKCV : TemplateImpostoCondicional
     {
         protected override bool AplicaMaximaTaxacao(Orcamento orcamento)
