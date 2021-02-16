@@ -1,5 +1,8 @@
 ﻿namespace Alura.DesignPatterns
 {
+    /// <summary>
+    /// Classe utilizada para a implementação de um Template Mothod.
+    /// </summary>
     public abstract class TemplateImpostoCondicional : IImposto
     {
         public double Calcula(Orcamento orcamento)
