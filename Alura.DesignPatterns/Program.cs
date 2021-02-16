@@ -18,9 +18,9 @@ namespace Alura.DesignPatterns
         private static void TestaImpostos()
         {
             var orcamento = new Orcamento(500);
-            var icms = new Icms();
-            var iss = new Iss();
-            var iccc = new Iccc();
+            var icms = new ICMS();
+            var iss = new ISS();
+            var iccc = new ICCC();
 
             Console.WriteLine(icms.Calcula(orcamento));
 
