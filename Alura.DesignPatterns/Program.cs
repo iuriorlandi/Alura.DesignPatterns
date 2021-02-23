@@ -10,6 +10,7 @@ namespace Alura.DesignPatterns
             TestaImpostos();
             Console.WriteLine();
             TestaDescontos();
+            TestaComissoes();
         }
 
         /// <summary>
@@ -46,6 +47,22 @@ namespace Alura.DesignPatterns
 
             Console.WriteLine(desconto);
             Console.ReadKey();
+        }
+
+        /// <summary>
+        /// Realiza teste de cálculo de comissão utilizando o padrão Decorator.
+        /// </summary>
+        public static void TestaComissoes()
+        {
+            var tv = new Item("TV", 1000);
+            var geladeira = new Item("Geladeira", 2000);
+
+            var orcamento = new Orcamento(new List<Item> { tv, geladeira });
+
+            var comissao = new ComissaoValorTotal(new ComissaoQuantidadeItens());
+            var valorComissao = comissao.CalcularComissao(orcamento);
+
+            Console.WriteLine(valorComissao);
         }
     }
 }
