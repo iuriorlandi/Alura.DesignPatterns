@@ -31,6 +31,7 @@ namespace Alura.DesignPatterns
 
             Console.ReadKey();
         }
+
         /// <summary>
         /// Realiza teste de aplicação de desconto utilizando o padrão Chain of Responsabily.
         /// </summary>

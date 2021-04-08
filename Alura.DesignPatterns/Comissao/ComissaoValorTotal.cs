@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace Alura.DesignPatterns
+﻿namespace Alura.DesignPatterns
 {
     /// <summary>
     /// Comissão calculada sobre o <see cref="Orcamento.Valor"/>.
