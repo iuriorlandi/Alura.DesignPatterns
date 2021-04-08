@@ -8,9 +8,38 @@ namespace Alura.DesignPatterns
         static void Main(string[] args)
         {
             TestaImpostos();
-            Console.WriteLine();
             TestaDescontos();
             TestaComissoes();
+            TestaEstados();
+        }
+
+        /// <summary>
+        /// Realiza teste dos <see cref="EstadoOrcamento"/> utilizado o padrão State.
+        /// </summary>
+        private static void TestaEstados()
+        {
+            EscreveCabecalho("Teste Estados.");
+            var orcamento = new Orcamento(1000);
+
+            orcamento.AplicarDescontoExtra();
+
+            Console.WriteLine(orcamento.Valor);
+
+            orcamento.Aprovar();
+
+            orcamento.AplicarDescontoExtra();
+
+            Console.WriteLine(orcamento.Valor);
+
+            orcamento.Finalizar();
+            Console.ReadKey();
+        }
+
+        private static void EscreveCabecalho(string titulo)
+        {
+            Console.WriteLine();
+            Console.WriteLine(titulo);
+            Console.WriteLine();
         }
 
         /// <summary>
@@ -18,6 +47,8 @@ namespace Alura.DesignPatterns
         /// </summary>
         private static void TestaImpostos()
         {
+            EscreveCabecalho("Teste Impostos.");
+
             var orcamento = new Orcamento(500);
             var icms = new ICMS();
             var iss = new ISS();
@@ -28,7 +59,6 @@ namespace Alura.DesignPatterns
             Console.WriteLine(iss.Calcula(orcamento));
 
             Console.WriteLine(iccc.Calcula(orcamento));
-
             Console.ReadKey();
         }
 
@@ -37,6 +67,8 @@ namespace Alura.DesignPatterns
         /// </summary>
         private static void TestaDescontos()
         {
+            EscreveCabecalho("Teste Descontos.");
+
             var tv = new Item("TV", 90);
             var geladeira = new Item("Geladeira", 90);
 
@@ -55,6 +87,8 @@ namespace Alura.DesignPatterns
         /// </summary>
         public static void TestaComissoes()
         {
+            EscreveCabecalho("Teste Comissoes.");
+
             var tv = new Item("TV", 1000);
             var geladeira = new Item("Geladeira", 2000);
 
@@ -64,6 +98,7 @@ namespace Alura.DesignPatterns
             var valorComissao = comissao.CalcularComissao(orcamento);
 
             Console.WriteLine(valorComissao);
+            Console.ReadKey();
         }
     }
 }
