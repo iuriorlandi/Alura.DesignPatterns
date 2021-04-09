@@ -11,6 +11,33 @@ namespace Alura.DesignPatterns
             TestaDescontos();
             TestaComissoes();
             TestaEstados();
+            TestaNotaFiscal();
+        }
+
+        /// <summary>
+        /// Realiza Teste de Nota Fiscal utilizando o padrão Builder.
+        /// </summary>
+        private static void TestaNotaFiscal()
+        {
+            EscreveCabecalho("Teste Nota Fiscal.");
+
+            var nfBuilder = new NotaFiscalBuilder();
+            var tv = new Item("Tv", 1500);
+            var geladeira = new Item("Geladeira", 2500);
+
+
+            nfBuilder
+                .ParaRazaoSocial("Teste LTDA")
+                .ParaCnpj("12.345.678/0001-01")
+                .AdicionarItem(tv)
+                .AdicionarItem(geladeira)
+                .AdicionarObservacoes("Nota fiscal de teste");
+
+            var nf = nfBuilder.GerarNotaFiscal();
+
+            Console.WriteLine(nf.ValorTotal);
+            Console.WriteLine(nf.Imposto);
+            Console.ReadKey();
         }
 
         /// <summary>
