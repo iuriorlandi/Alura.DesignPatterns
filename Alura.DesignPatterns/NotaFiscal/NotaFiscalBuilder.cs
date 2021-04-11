@@ -13,6 +13,7 @@ namespace Alura.DesignPatterns
         public double Imposto { get; set; }
         public string Observacoes { get; set; }
         public List<Item> Itens { get; set; } = new List<Item>();
+        public List<IAcaoAposCriarNota> AcoesAposCriarNota { get; set; } = new List<IAcaoAposCriarNota>();
 
         /// <summary>
         /// Atribui uma <see cref="RazaoSocial"/>
@@ -66,7 +67,19 @@ namespace Alura.DesignPatterns
         /// <returns>Retorna uma nova <see cref="NotaFiscal"/>.</returns>
         public NotaFiscal GerarNotaFiscal()
         {
-            return new NotaFiscal(RazaoSocial, Cnpj, ValorTotal, Imposto, Observacoes, Itens);
+            var nf = new NotaFiscal(RazaoSocial, Cnpj, ValorTotal, Imposto, Observacoes, Itens);
+
+            foreach (var acao in AcoesAposCriarNota)
+            {
+                acao.Executa(nf);
+            }
+
+            return nf;
+        }
+
+        public void AdicionarAcaoAposCriarNota(IAcaoAposCriarNota novaAcao)
+        {
+            AcoesAposCriarNota.Add(novaAcao);
         }
     }
 }

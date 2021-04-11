@@ -12,6 +12,35 @@ namespace Alura.DesignPatterns
             TestaComissoes();
             TestaEstados();
             TestaNotaFiscal();
+            TestaAcoesAposCriarNota();
+        }
+
+        /// <summary>
+        /// Testa ações após a criação de uma <see cref="NotaFiscal"/> utilizando o padrão Observer.
+        /// </summary>
+        private static void TestaAcoesAposCriarNota()
+        {
+            EscreveCabecalho("Teste Acoes após criar Nota Fiscal");
+
+            var nfBuilder = new NotaFiscalBuilder();
+            var tv = new Item("Tv", 1500);
+            var geladeira = new Item("Geladeira", 2500);
+
+            nfBuilder.AdicionarAcaoAposCriarNota(new EnviadorEmail());
+            nfBuilder.AdicionarAcaoAposCriarNota(new EnviadorSms());
+
+            nfBuilder
+                .ParaRazaoSocial("Teste LTDA")
+                .ParaCnpj("12.345.678/0001-01")
+                .AdicionarItem(tv)
+                .AdicionarItem(geladeira)
+                .AdicionarObservacoes("Nota fiscal de teste");
+
+            var nf = nfBuilder.GerarNotaFiscal();
+
+            Console.WriteLine(nf.ValorTotal);
+            Console.WriteLine(nf.Imposto);
+            Console.ReadKey();
         }
 
         /// <summary>
